@@ -456,7 +456,7 @@ class AudioSession {
       isInput: device.isSource,
       isOutput: device.isSink,
       type: _androidType2type(device.type),
-    );
+    )..androidAddress = device.address;
   }
 }
 
@@ -660,6 +660,9 @@ class AudioDevice {
 
   /// The type of this device.
   final AudioDeviceType type;
+
+  /// only android.
+  String? androidAddress;
 
   AudioDevice({
     required this.id,
